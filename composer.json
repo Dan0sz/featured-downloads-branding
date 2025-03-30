@@ -1,0 +1,18 @@
+{
+    "name": "daan/featured-downloads-branding",
+    "description": "An extension for Easy Digital Downloads' Featured Downloads plugin.",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Daan\\Branding\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dan0sz",
+            "email": "18595395+Dan0sz@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}

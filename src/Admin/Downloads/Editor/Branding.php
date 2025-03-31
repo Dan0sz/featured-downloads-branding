@@ -34,7 +34,7 @@ class Branding extends Section {
 	 * @since 3.3.6
 	 * @var int
 	 */
-	protected $priority = 2;
+	protected $priority = 1;
 
 	/**
 	 * Section icon.
@@ -69,9 +69,7 @@ class Branding extends Section {
 		?>
         <div class="edd-form-group">
             <label for="<?php echo self::BRAND; ?>" class="edd-form-group__label">
-				<?php echo esc_html(
-					apply_filters( 'edd_product_type_options_heading', __( 'Type:', 'daan-featured-downloads-branding' ) )
-				); ?>
+				<?php echo esc_html( __( 'Brand:', 'daan-featured-downloads-branding' ) ); ?>
             </label>
             <div class="edd-form-group__control">
 				<?php
@@ -93,9 +91,7 @@ class Branding extends Section {
         </div>
         <div class="edd-form-group">
             <label for="<?php echo self::LOGO_NORMAL; ?>" class="edd-form-group__label">
-				<?php echo esc_html(
-					apply_filters( 'edd_product_type_options_heading', __( 'Logo (normal):', 'daan-featured-downloads-branding' ) )
-				); ?>
+				<?php echo esc_html( __( 'Logo (normal):', 'daan-featured-downloads-branding' ) ); ?>
             </label>
             <div class="edd-form-group__control">
 				<?php
@@ -103,16 +99,14 @@ class Branding extends Section {
 					[
 						'id'    => self::LOGO_NORMAL,
 						'name'  => self::LOGO_NORMAL,
-						'value' => '',
+						'value' => get_post_meta( $download->ID, self::LOGO_NORMAL, true ),
 					]
 				);
 				$logo->output();
 				?>
             </div>
             <label for="<?php echo self::LOGO_LIGHT; ?>" class="edd-form-group__label">
-				<?php echo esc_html(
-					apply_filters( 'edd_product_type_options_heading', __( 'Logo (light):', 'daan-featured-downloads-branding' ) )
-				); ?>
+				<?php echo esc_html( __( 'Logo (light):', 'daan-featured-downloads-branding' ) ); ?>
             </label>
             <div class="edd-form-group__control">
 				<?php
@@ -120,16 +114,14 @@ class Branding extends Section {
 					[
 						'id'    => self::LOGO_LIGHT,
 						'name'  => self::LOGO_LIGHT,
-						'value' => '',
+						'value' => get_post_meta( $download->ID, self::LOGO_LIGHT, true ),
 					]
 				);
 				$logo->output();
 				?>
             </div>
             <label for="<?php echo self::ICON; ?>" class="edd-form-group__label">
-				<?php echo esc_html(
-					apply_filters( 'edd_product_type_options_heading', __( 'Icon:', 'daan-featured-downloads-branding' ) )
-				); ?>
+				<?php echo esc_html( __( 'Icon:', 'daan-featured-downloads-branding' ) ); ?>
             </label>
             <div class="edd-form-group__control">
 				<?php
@@ -137,7 +129,7 @@ class Branding extends Section {
 					[
 						'id'    => self::ICON,
 						'name'  => self::ICON,
-						'value' => '',
+						'value' => get_post_meta( $download->ID, self::ICON, true ),
 					]
 				);
 				$logo->output();
@@ -146,7 +138,7 @@ class Branding extends Section {
         </div>
         <div class="edd-form-group">
             <label class="edd-form-group__label">
-				<?php _e( 'Copy:', 'daan-featured-downloads-branding' ); ?>
+				<?php echo esc_html( __( 'Copy:', 'daan-featured-downloads-branding' ) ); ?>
             </label>
             <div class="edd-form-group__control">
 				<?php
@@ -155,7 +147,7 @@ class Branding extends Section {
 						'label' => __( 'Header Tagline', 'daan-featured-downloads-branding' ),
 						'id'    => self::TAGLINE,
 						'name'  => self::TAGLINE,
-						'value' => '',
+						'value' => get_post_meta( $download->ID, self::TAGLINE, true ),
 					]
 				);
 				$copy->output();
@@ -168,7 +160,7 @@ class Branding extends Section {
 						'label' => __( 'Button Text', 'daan-featured-downloads-branding' ),
 						'id'    => self::BUTTON_TEXT,
 						'name'  => self::BUTTON_TEXT,
-						'value' => '',
+						'value' => get_post_meta( $download->ID, self::BUTTON_TEXT, true ),
 					]
 				);
 				$copy->output();

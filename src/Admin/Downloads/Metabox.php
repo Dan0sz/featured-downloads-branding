@@ -8,49 +8,42 @@
 
 namespace Daan\Branding\Admin\Downloads;
 
+use Daan\Branding\Admin\Downloads\Editor\Branding;
+
 class Metabox {
-	const BRAND       = 'edd_featured_download_brand';
-
-	const LOGO_NORMAL = 'edd_featured_download_logo_normal';
-
-	const LOGO_LIGHT  = 'edd_featured_download_logo_light';
-
-	const ICON        = 'edd_featured_download_icon';
-
-	const TAGLINE     = 'edd_featured_download_tagline';
-
-	const BUTTON_TEXT = 'edd_featured_download_button_text';
-
+	/**
+	 * Build class.
+	 */
 	public function __construct() {
 		$this->init();
 	}
 
+	/**
+	 * Action and filter hooks.
+	 *
+	 * @return void
+	 */
 	private function init() {
 		add_filter( 'edd_metabox_fields_save', [ $this, 'add_fields' ] );
-		add_action( 'edd_meta_box_settings_fields', [ $this, 'render_row' ], 1 );
 	}
 
+	/**
+	 * Add fields to POST for saving.
+	 *
+	 * @param $fields
+	 *
+	 * @return array
+	 */
 	public function add_fields( $fields ) {
-		$to_save = [];
+		$to_save = [
+			Branding::BRAND,
+			Branding::LOGO_NORMAL,
+			Branding::LOGO_LIGHT,
+			Branding::ICON,
+			Branding::TAGLINE,
+			Branding::BUTTON_TEXT,
+		];
 
 		return array_merge( $fields, $to_save );
-	}
-
-	public function render_row( $post_id ) {
-		if ( ! current_user_can( 'manage_shop_settings' ) ) {
-			return;
-		}
-
-		$brand       = get_post_meta( $post_id, self::BRAND, true );
-		$logo_normal = get_post_meta( $post_id, self::LOGO_NORMAL, true );
-		$logo_light  = get_post_meta( $post_id, self::LOGO_LIGHT, true );
-		$icon        = get_post_meta( $post_id, self::ICON, true );
-		$tagline     = get_post_meta( $post_id, self::TAGLINE, true );
-		$button_text = get_post_meta( $post_id, self::BUTTON_TEXT, true );
-		?>
-        <div class="edd-metabox__featured-downloads-branding">
-            <h3><?php _e( 'Branding' ); ?></h3>
-        </div>
-		<?php
 	}
 }

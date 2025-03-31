@@ -16,6 +16,7 @@ class Plugin {
 	private function init() {
 		if ( is_admin() ) {
 			new Admin\Assets();
+			new Admin\Downloads\Metabox();
 			new Admin\Downloads\Editor\Sections();
 		}
 	}

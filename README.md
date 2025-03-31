@@ -6,3 +6,5 @@ The preset brands are filterable using the `daan_featured_downloads_brands`, so 
 
 The purpose of this plugin is to offer an interface to easily add branding elements to your Downloads, so you can use
 them in your theme and/or plugin. It does not offer any blocks, etc.
+
+I use it to automatically generate Featured Images for my Downloads. You can see it in action on https://daan.dev.

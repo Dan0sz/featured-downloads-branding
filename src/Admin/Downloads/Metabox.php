@@ -17,7 +17,7 @@ class Metabox {
 	public function __construct() {
 		$this->init();
 	}
-
+	
 	/**
 	 * Action and filter hooks.
 	 *
@@ -26,7 +26,7 @@ class Metabox {
 	private function init() {
 		add_filter( 'edd_metabox_fields_save', [ $this, 'add_fields' ] );
 	}
-
+	
 	/**
 	 * Add fields to POST for saving.
 	 *
@@ -42,8 +42,12 @@ class Metabox {
 			Branding::ICON,
 			Branding::TAGLINE,
 			Branding::BUTTON_TEXT,
+			Branding::TESTIMONIAL_TITLE,
+			Branding::TESTIMONIAL,
+			Branding::TESTIMONIAL_AUTHOR,
+			Branding::TESTIMONIAL_AUTHOR_IMAGE
 		];
-
+		
 		return array_merge( $fields, $to_save );
 	}
 }

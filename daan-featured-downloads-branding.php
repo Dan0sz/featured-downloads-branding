@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Daan - Featured Downloads Branding
  * Description: Extends EDD Featured Downloads with a feature to define a Download branding for use in other tools, e.g. auto-generated featured images.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Daan from Daan.dev
  * Author URI: https://daan.dev
  * GitHub Plugin URI: Dan0sz/featured-downloads
